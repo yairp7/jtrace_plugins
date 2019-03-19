@@ -1,6 +1,6 @@
 #define _32
 
-#include "jtraceAPI.h"
+#include "../jtraceAPI.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <dlfcn.h> 
@@ -140,7 +140,7 @@ syscall_handler_ret_t onFileOpened(regs_t* regs, int isExit, int pId)
 struct logger_t* initLogging()
 {
 	struct logger_t* logger = (struct logger_t*)calloc(1, sizeof(struct logger_t));
-	void* handle = dlopen("bin/liblogging.so", RTLD_NOW|RTLD_GLOBAL);
+	void* handle = dlopen("lib/liblogging.so", RTLD_NOW|RTLD_GLOBAL);
 	if(handle)
 	{
 		logger->size = 0;
